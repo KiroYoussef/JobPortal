@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="text-center mb-5">
+      <h3>Jobs openning</h3>
+    </div>
+    <div *ngFor="let job of JobList" class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex flex-column flex-lg-row">
+            <!-- Avatar Section -->
+            <span class="avatar avatar-text rounded-3 me-4 mb-2">{{ job.companyName }}</span>
+            
+            <div class="row flex-fill">
+              <div class="col-sm-5">
+                <h4 class="h5">{{ job.title }}</h4>
+                <span class="badge bg-secondary">{{ job.status }}</span>
+                <span class="badge bg-success">{{ job.salaryRange }}</span>
+              </div>
+              
+              <div class="col-sm-4 py-2">
+                <!-- Dynamically display job requirements as badges -->
+                <span *ngFor="let requirement of job.jobRequirements" class="badge bg-secondary">{{ requirement }}</span>
+              </div>
+              
+              <div class="col-sm-3 text-lg-end">
+                <a [routerLink]="['/Job', job.id]" class="btn btn-primary stretched-link">Apply</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    
+   
+  </div>
